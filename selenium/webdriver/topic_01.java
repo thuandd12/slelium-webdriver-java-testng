@@ -32,11 +32,6 @@ public class topic_01 {
 		
 		
 	}
-	@Test
-	public void Tc_04() {
-		
-	
-	}
 	
 	@AfterClass
 	public void afterClass() {
