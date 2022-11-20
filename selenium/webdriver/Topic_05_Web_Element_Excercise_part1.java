@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -24,12 +25,14 @@ public class Topic_05_Web_Element_Excercise_part1 {
     
 	@BeforeClass
 	public void BeforeClass() {
-		driver = new FirefoxDriver();
+		String projecPath = System.getProperty("user.dir");
+		System.setProperty("webdriver.chrome.driver", projecPath + "\\browserDrivers\\chromedriver.exe");
+		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
 		 
 	}
-	//@Test
+	@Test
 	public void TC_01_Ckeck_the_displayed_section() {
 		//Access to website
 		driver.get("https://automationfc.github.io/basic-form/index.html");
@@ -67,7 +70,7 @@ public class Topic_05_Web_Element_Excercise_part1 {
 		}
 		
 	}
-	//@Test
+	@Test
 	public void TC_03_check_the_elements_are_selected() {
 		//Access to website
 		driver.get("https://automationfc.github.io/basic-form/index.html");
@@ -99,6 +102,7 @@ public class Topic_05_Web_Element_Excercise_part1 {
 		Random rand = new Random();
 		return rand.nextInt(9999) + "";
 				
+		
 	}
 	public boolean isElementDisplayed(By by) {
 		if(driver.findElement(by).isDisplayed()) {

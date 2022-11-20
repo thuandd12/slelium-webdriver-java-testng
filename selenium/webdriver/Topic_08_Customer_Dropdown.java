@@ -5,8 +5,10 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,13 +17,15 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_08_Customer_Dropdown_Part2 {
+public class Topic_08_Customer_Dropdown {
 	WebDriver driver;
 	WebDriverWait explicitWait;
 	JavascriptExecutor jsExecutor;
 	@BeforeClass
 	public void BeforeClass() {
-		driver = new FirefoxDriver();
+		String projecPath = System.getProperty("user.dir");
+		System.setProperty("webdriver.chrome.driver", projecPath + "\\browserDrivers\\chromedriver.exe");
+		driver = new ChromeDriver();
 		explicitWait = new WebDriverWait(driver, 20);
 		jsExecutor = (JavascriptExecutor)driver;
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

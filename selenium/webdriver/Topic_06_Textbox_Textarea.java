@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.server.browserlaunchers.Sleeper;
 import org.testng.Assert;
@@ -31,7 +32,9 @@ public class Topic_06_Textbox_Textarea {
 	
 	@BeforeClass
 	public void BeforeClass() {
-		driver = new FirefoxDriver();
+		String projecPath = System.getProperty("user.dir");
+		System.setProperty("webdriver.chrome.driver", projecPath + "\\browserDrivers\\chromedriver.exe");
+		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		emailAdd = "dthuan" + randomVarible();
 		//Customer
@@ -43,12 +46,12 @@ public class Topic_06_Textbox_Textarea {
 		pinno = "100000";
 		telephoneno = "0972134569";
 		//Edit Customer
-		addrEdit = "929 Javs De Stin";
-		cityEdit = "Kosovo";
-		stateEdit = "Woa Sing Ton";
-		pinnoEdit = "200000";
-		telephonenoEdit = "0928348588";
-		emailEdit = "Atonn" + randomVarible();
+		addrEdit = "47 Kha Lip";
+		cityEdit = "Mancherter";
+		stateEdit = "Lon Don";
+		pinnoEdit = "400000";
+		telephonenoEdit = "0928348583";
+		emailEdit = "Aton" + randomVarible();
 
 		
 	}
@@ -125,7 +128,7 @@ public class Topic_06_Textbox_Textarea {
 		driver.findElement(By.xpath("//td[text()='E-mail']//following-sibling::td//input")).clear();
 		driver.findElement(By.xpath("//td[text()='E-mail']//following-sibling::td//input")).sendKeys(emailEdit);
 		
-		//driver.findElement(By.name("sub")).click();
+		driver.findElement(By.name("sub")).click();
 		sleepInsecond(2);
 		
 		

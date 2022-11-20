@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.server.handler.ClearElement;
 import org.testng.Assert;
@@ -17,7 +18,9 @@ public class Topic_05_Web_Element_Excercise_part2 {
 	
 	@BeforeClass
 	public void BeforeClass() {
-		driver = new FirefoxDriver();
+		String projecPath = System.getProperty("user.dir");
+		System.setProperty("webdriver.chrome.driver", projecPath + "\\browserDrivers\\chromedriver.exe");
+		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
 		

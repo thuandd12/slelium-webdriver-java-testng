@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.apache.http.util.Asserts;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -24,7 +25,9 @@ public class Topic_02_Xpath_and_CSS_Part2 {
 
 	@BeforeClass
 	public void BeforeClass() {
-		driver = new FirefoxDriver();
+		String projecPath = System.getProperty("user.dir");
+		System.setProperty("webdriver.chrome.driver", projecPath + "\\browserDrivers\\chromedriver.exe");
+		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 	}
@@ -176,8 +179,7 @@ public class Topic_02_Xpath_and_CSS_Part2 {
 		sleepInsecond(3);
 		//Verify the popup window and check that products are reflected in it Heading 'COMPARE PRODUCTS' 
 		//Assert.assertEquals(driver.findElement(By.xpath("//div[@class='page-title title-buttons']/h1")).getText(), "Compare Products");
-		//Close the Popup Windows
-		driver.findElement(By.xpath("//*[@class='_2AkmmA _29YdH8']")).click();
+		//Close the Popup Window
 		
 		
 	
@@ -185,7 +187,7 @@ public class Topic_02_Xpath_and_CSS_Part2 {
 	
 	@AfterClass
 	public void afterClass() {
-		//driver.quit();
+		driver.quit();
 	}
 
 	public void sleepInsecond(long timeoutInsecond) {
