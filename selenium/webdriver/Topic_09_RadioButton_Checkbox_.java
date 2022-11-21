@@ -30,7 +30,7 @@ public class Topic_09_RadioButton_Checkbox_ {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 	
-	//@Test
+	@Test
 	public void TC_01_RadioButton_Default() {
 
 		driver.get("https://www.fahasa.com/customer/account/create");
@@ -57,7 +57,7 @@ public class Topic_09_RadioButton_Checkbox_ {
 				
 	}
 
-	//@Test
+	@Test
 	public void TC_02_Checkbox_Default() {
 		driver.get("https://demos.telerik.com/kendo-ui/checkbox/index");
 		sleepInsecond(2);
@@ -82,12 +82,10 @@ public class Topic_09_RadioButton_Checkbox_ {
 	
 	@Test
 	public void TC_03_Customer_Checkbox_And_radioButton() {
-		// driver.get("https://material.angular.io/components/radio/examples");
-		// sleepInsecond(2);
-		// checkOnCheckBox(By.xpath("//label[contains(text(),'
-		// Summer')]//preceding-sibling::div"));
-		// equalCheckBoxAndRadioSelect(By.xpath("//label[contains(text(),'
-		// Summer')]//preceding-sibling::div"));
+		driver.get("https://material.angular.io/components/radio/examples");
+		sleepInsecond(2);
+		checkOnCheckBox(By.xpath("//label[contains(text(),' Summer')]//preceding-sibling::div"));
+		equalCheckBoxAndRadioSelect(By.xpath("//label[contains(text(),' Summer')]//preceding-sibling::div"));
 		
 		
 		driver.get("https://material.angular.io/components/checkbox/examples");
@@ -109,6 +107,7 @@ public class Topic_09_RadioButton_Checkbox_ {
 		checkOutCheckBox(By.xpath("//label[text()='Indeterminate']//parent::div//input[@aria-checked=\"true\"]"));
 		sleepInsecond(2);
 		
+		
 		String checker = driver.findElement(By.xpath("//label[text()='Checked']//parent::div//input")).getAttribute("aria-checked");
 		System.out.println(checker);
 		Assert.assertEquals(checker, "false");
@@ -117,13 +116,9 @@ public class Topic_09_RadioButton_Checkbox_ {
 		System.out.println(indeterminate);
 		Assert.assertEquals(indeterminate, "false");
 	}
-	@Test
-	public void TC_04_Customer_Checkbox_Or_radioButton() {
-		
-	}
 	@AfterClass
 	public void afterClass() {
-		//driver.quit();
+		driver.quit();
 	}
 	public void checkOnCheckBox (By by) {
 		WebElement checkBox = driver.findElement(by);
