@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 
-public class Topic_01_If_Else {
+public class Topic_02_If_Else2 {
 	WebDriver  driver;
 	Scanner runScanner = new Scanner(System.in) ;
 	@Test
