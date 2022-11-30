@@ -21,7 +21,6 @@ public class Topic_07_Default_Dropdown_Part1 {
 	Select select;
 	JavascriptExecutor jsExecutor;
 	String firtName,lastName,dOD,email,companyName,passWord,confimrPassword,dOM,dOY;
-	
 	@BeforeClass
 	public void BeforeClass() {
 		String projecPath = System.getProperty("user.dir");

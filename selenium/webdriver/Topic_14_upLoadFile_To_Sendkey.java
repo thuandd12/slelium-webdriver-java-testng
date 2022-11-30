@@ -27,7 +27,7 @@
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		}
 
-		//@Test
+		@Test
 		public void TC_01_upLoad_One_File() {
 			driver.get("https://blueimp.github.io/jQuery-File-Upload/");
 			driver.findElement(By.xpath("//input[@type='file']")).sendKeys(oto1FilePath);
