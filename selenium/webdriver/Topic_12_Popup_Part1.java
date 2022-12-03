@@ -12,8 +12,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import sun.reflect.generics.tree.ReturnType;
-
 public class Topic_12_Popup_Part1 {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
